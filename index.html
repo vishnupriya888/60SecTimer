@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="./jquery.pietimer.js"></script>
+    <link
+      href="http://www.jqueryscript.net/css/jquerysctipttop.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      body {
+        background-color: white;
+        color: black;
+      }
+    </style>
+    <script type="text/javascript">
+      $(function () {
+        $(".boom").hide();
+
+        $("#demo").pietimer(
+          {
+            seconds: 60,
+            color: "black",
+            height: 200,
+            width: 200,
+            is_reversed: true,
+          },
+          function () {
+            $(".boom").show("slow");
+          }
+        );
+
+        $("a#start").click(function () {
+          $(".boom").hide();
+          $("#demo").pietimer("start");
+          return false;
+        });
+        $("a#pause").click(function () {
+          $("#demo").pietimer("pause");
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container" style="margin: 150px auto 30px auto">
+      <center>
+        <h1 style="margin-bottom: 50px">60 Seconds Timer</h1>
+
+        <p id="demo" style="height: 230px"></p>
+        <p>
+          <a href="#" id="start" class="btn btn-default">Start Timer</a>
+          <a href="#" id="pause" class="btn btn-danger">Pause Timer</a>
+        </p>
+        <h3 class="boom">Boom!</h3>
+        <p class="boom">The timer finished.</p>
+      </center>
+    </div>
+  </body>
+</html>
